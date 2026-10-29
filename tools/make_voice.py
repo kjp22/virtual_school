@@ -41,7 +41,7 @@ UI_LINES = {
 }
 
 ELEVEN_API = "https://api.elevenlabs.io/v1"
-ELEVEN_DEFAULT_VOICE = "EXAVITQu4vr4xnSDxMaL"  # "Sarah", a premade multilingual voice
+ELEVEN_DEFAULT_VOICE = "T6NabghTdZ1K1TRF4KuA"  # "Lena", a native Greek voice from the Voice Library (needs a paid plan or API credits)
 
 
 def speech_text(lines):
