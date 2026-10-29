@@ -258,8 +258,8 @@
     if (i >= scenes.length) return showChapterEnd();
     state.index = Math.max(0, i);
     const scene = scenes[state.index];
-    location.replace(`#${state.chapterIdx}/${state.index}`);
-    store.set("vs-pos", `${state.chapterIdx}/${state.index}`);
+    location.replace(`#ch${state.chapterIdx}-${state.index}`);
+    store.set("vs-pos", `ch${state.chapterIdx}-${state.index}`);
 
     el.fg.classList.add("leaving");
     const card = titleCardFor(state.index);
@@ -579,9 +579,9 @@
   // ---------- Start ----------
   renderHome();
   window.Background.set("night stars");
-  // "#1/5" opens chapter 1 at scene 5 (paused), handy for picking up where she left off.
+  // "#ch1-5" opens chapter 1 at scene 5 (paused), handy for picking up where she left off.
   function openFromHash() {
-    const m = location.hash.match(/^#(\d+)\/(\d+)$/);
+    const m = location.hash.match(/^#ch(\d+)-(\d+)$/);
     if (!m || !DATA.chapters[+m[1]]) return;
     if (state.chapter === DATA.chapters[+m[1]] && state.index === +m[2] && el.home.hidden) return;
     openChapter(+m[1], +m[2], false);
