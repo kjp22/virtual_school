@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ταξίδι στα Βυζαντινά Χρόνια</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="at-home">
+<div id="stage">
+  <!-- Layer 1: background animation -->
+  <canvas id="bg-canvas"></canvas>
+  <video id="bg-video" muted loop playsinline></video>
+  <div class="vignette"></div>
+
+  <!-- Layer 2: foreground picture -->
+  <div id="fg">
+    <img id="fg-img" alt="" hidden>
+    <div id="fg-placeholder" aria-hidden="true"></div>
+    <p id="fg-note"></p>
+  </div>
+
+  <!-- Layer 3: captions -->
+  <div id="captions" aria-live="polite"></div>
+
+  <header id="topbar">
+    <button id="btn-home" class="chip" title="Αρχική">⌂</button>
+    <span id="station-chip" class="chip"></span>
+    <div id="progress"></div>
+  </header>
+
+  <div id="title-card" hidden>
+    <p class="eyebrow"></p>
+    <h2></h2>
+  </div>
+
+  <div id="quiz" hidden></div>
+
+  <nav id="controls">
+    <button id="btn-prev" title="Προηγούμενη σκηνή (←)">⏮</button>
+    <button id="btn-play" title="Παύση / Συνέχεια (Space)">⏸</button>
+    <button id="btn-next" title="Επόμενη σκηνή (→)">⏭</button>
+    <button id="btn-cc" class="toggle on" title="Υπότιτλοι (C)">CC</button>
+    <button id="btn-info" class="toggle" title="Σημειώσεις παραγωγής (I)">ⓘ</button>
+    <button id="btn-full" title="Πλήρης οθόνη (F)">⛶</button>
+  </nav>
+
+  <section id="home">
+    <div class="home-inner">
+      <div class="home-owl">🦉</div>
+      <p class="eyebrow">Βοήθημα Ιστορίας · Ε΄ Δημοτικού</p>
+      <h1>Ταξίδι στα<br>Βυζαντινά Χρόνια</h1>
+      <p class="lede">Με οδηγό τη Γλαύκη, την κουκουβάγια που πετάει μέσα στον χρόνο.</p>
+      <div id="chapter-list"></div>
+      <p id="voice-status"></p>
+    </div>
+  </section>
+</div>
+
+<script src="data/lessons.js"></script>
+<script src="background.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
