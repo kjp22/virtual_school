@@ -21,7 +21,7 @@ the same cute owl holding a glowing golden hourglass in her wings, tiny scenes o
 
 **c00-0-3** — Πού πάμε;
 ```
-a glowing golden city with many domes and strong walls on the shore of a narrow strait between two continents, seen from far away at sunset, small sailing ships on a shimmering sea, inspired by Byzantine Constantinople, warm children's storybook illustration, soft painterly style, no text --ar 4:3
+a glowing golden city with many domes and strong walls on the shore of a narrow strait between two continents, seen from far away at sunset, small sailing ships on a shimmering sea, inspired by Byzantine Constantinople with the great dome of Hagia Sophia, no minarets, no thin pointed towers, warm children's storybook illustration, soft painterly style, no text --ar 4:3
 ```
 
 **c00-0-4** — Η γραμμή του χρόνου

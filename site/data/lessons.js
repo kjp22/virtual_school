@@ -19,7 +19,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": "img/c00-0-1.png",
-     "clip": null,
+     "clip": "clip/c00-0-1.mp4",
      "video": null,
      "audio": "audio/c00-0-1.mp3",
      "words": [
