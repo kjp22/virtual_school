@@ -18,7 +18,7 @@ window.LESSONS = {
       "Πετάω και μέσα στον χρόνο!"
      ],
      "questions": [],
-     "img": null,
+     "img": "img/c00-0-1.png",
      "clip": null,
      "video": null,
      "audio": "audio/c00-0-1.mp3",
@@ -150,7 +150,7 @@ window.LESSONS = {
       "Ένα ταξίδι χίλιων εξακοσίων χρόνων!"
      ],
      "questions": [],
-     "img": null,
+     "img": "img/c00-0-2.png",
      "clip": null,
      "video": null,
      "audio": "audio/c00-0-2.mp3",
@@ -357,7 +357,7 @@ window.LESSONS = {
       "η **Κωνσταντινούπολη**."
      ],
      "questions": [],
-     "img": null,
+     "img": "img/c00-0-3.png",
      "clip": null,
      "video": null,
      "audio": "audio/c00-0-3.mp3",
