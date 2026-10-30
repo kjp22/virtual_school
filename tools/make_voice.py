@@ -41,11 +41,30 @@ UI_LINES = {
 }
 
 ELEVEN_API = "https://api.elevenlabs.io/v1"
-ELEVEN_DEFAULT_VOICE = "EXAVITQu4vr4xnSDxMaL"  # "Sarah", a premade multilingual voice
+ELEVEN_DEFAULT_VOICE = "0oYUKTNPbymIKVAkDQqh"  # "Sofia", a sweet native Greek voice from the Voice Library (needs a paid plan or API credits)
+
+# Abbreviations the voice should say in full (the captions keep the short form).
+SPOKEN = [
+    (r"π\.\s?Χ\.", "προ Χριστού"),
+    (r"μ\.\s?Χ\.", "μετά Χριστόν"),
+]
+
+
+def spoken_line(line, ends_sentence):
+    line = re.sub(r"\*\*", "", line).rstrip()
+    for pattern, spoken in SPOKEN:
+        # The abbreviation's dot also ends the sentence when it closes the line.
+        line = re.sub(pattern + r"$", spoken + ("." if ends_sentence else ""), line)
+        line = re.sub(pattern, spoken, line)
+    return line
 
 
 def speech_text(lines):
-    return " ".join(re.sub(r"\*\*", "", line) for line in lines)
+    lines = [re.sub(r"\*\*", "", line) for line in lines]
+    return " ".join(
+        spoken_line(line, i + 1 == len(lines) or not lines[i + 1][:1].islower())
+        for i, line in enumerate(lines)
+    )
 
 
 def save(slug, audio_bytes, words):
@@ -166,7 +185,7 @@ async def main():
     eleven.add_argument("--api-key", default=os.environ.get("ELEVENLABS_API_KEY"),
                         help="or set ELEVENLABS_API_KEY; asked for if missing")
     eleven.add_argument("--voice-id", default=ELEVEN_DEFAULT_VOICE)
-    eleven.add_argument("--model", default="eleven_multilingual_v2", help="eleven_multilingual_v2 supports Greek")
+    eleven.add_argument("--model", default="eleven_v3", help="eleven_v3 and eleven_multilingual_v2 both support Greek")
     eleven.add_argument("--speed", type=float, default=0.95, help="0.7 (slow) to 1.2 (fast)")
     eleven.add_argument("--list-voices", action="store_true", help="show your ElevenLabs voices and stop")
     args = parser.parse_args()
