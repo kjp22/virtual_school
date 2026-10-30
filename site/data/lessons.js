@@ -19,6 +19,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -39,6 +40,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -59,6 +61,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -81,6 +84,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -101,6 +105,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -120,6 +125,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -139,6 +145,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -165,6 +172,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -185,6 +193,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -206,6 +215,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -227,6 +237,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -249,6 +260,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -287,6 +299,7 @@ window.LESSONS = {
       }
      ],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -307,6 +320,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -329,6 +343,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -348,6 +363,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -369,6 +385,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -390,6 +407,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -410,6 +428,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -464,6 +483,7 @@ window.LESSONS = {
       }
      ],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -484,6 +504,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -504,6 +525,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -525,6 +547,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -545,6 +568,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -567,6 +591,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -606,6 +631,7 @@ window.LESSONS = {
       }
      ],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -625,6 +651,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -645,6 +672,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -666,6 +694,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -687,6 +716,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -707,6 +737,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -727,6 +758,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -747,6 +779,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -801,6 +834,7 @@ window.LESSONS = {
       }
      ],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null
@@ -824,6 +858,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": null,
+     "clip": null,
      "video": null,
      "audio": null,
      "words": null

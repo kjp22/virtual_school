@@ -57,6 +57,12 @@ def save(slug, audio_bytes, words):
 
 async def record_edge(text, slug, args):
     import edge_tts
+    import edge_tts.communicate
+
+    # edge-tts ignores SSL_CERT_FILE; honour it so recording works behind a proxy (e.g. a cloud session).
+    if os.environ.get("SSL_CERT_FILE"):
+        import ssl
+        edge_tts.communicate._SSL_CTX = ssl.create_default_context(cafile=os.environ["SSL_CERT_FILE"])
 
     words, audio = [], bytearray()
     com = edge_tts.Communicate(text, args.voice, rate=args.rate, boundary="WordBoundary")

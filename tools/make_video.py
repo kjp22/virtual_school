@@ -133,7 +133,8 @@ def main():
     parser.add_argument("--force", action="store_true", help="make clips again even if they exist")
     parser.add_argument("--seconds", type=int, choices=[5, 10], default=5)
     parser.add_argument("--yes", action="store_true", help="don't ask before spending fal.ai credit")
-    parser.add_argument("--api-key", default=os.environ.get("FAL_KEY"), help="or set FAL_KEY; asked for if missing")
+    parser.add_argument("--api-key", default=os.environ.get("FAL_KEY") or os.environ.get("FAL_AI_API_KEY"),
+                        help="or set FAL_KEY (or FAL_AI_API_KEY); asked for if missing")
     parser.add_argument("--model-clip", default=CLIP_MODEL)
     parser.add_argument("--model-bg", default=BG_MODEL)
     args = parser.parse_args()
