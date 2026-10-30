@@ -84,12 +84,21 @@ def image_data_uri(path):
     return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
 
 
+def picture_prompts():
+    """The prompts the pictures were made from (prompts/*.md), by scene. They say "no text",
+    unlike the script's Μπροστά lines, which can ask for labels the player adds itself."""
+    from make_images import read_prompts
+    return {slug: prompt for path in sorted((ROOT / "prompts").glob("midjourney-*.md"))
+            for slug, prompt, _, _ in read_prompts(path)}
+
+
 def clip_inputs(scene, args):
     picture = SITE / build.find_media("img", scene["slug"], [".webp", ".png", ".jpg"])
+    description = picture_prompts().get(scene["slug"], scene["fg"])
     # Older Kling versions call the picture image_url; newer ones start_image_url.
     image_key = "image_url" if any(v in args.model_clip for v in ("v1", "v2.1", "v2.5")) else "start_image_url"
     inputs = {
-        "prompt": f"{scene['fg']}. {CLIP_MOTION}. {STYLE}",
+        "prompt": f"{description}. {CLIP_MOTION}. {STYLE}",
         image_key: image_data_uri(picture),
         "duration": str(args.seconds),
         "negative_prompt": NEGATIVE,

@@ -151,7 +151,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": "img/c00-0-2.png",
-     "clip": null,
+     "clip": "clip/c00-0-2.mp4",
      "video": null,
      "audio": "audio/c00-0-2.mp3",
      "words": [
@@ -358,7 +358,7 @@ window.LESSONS = {
      ],
      "questions": [],
      "img": "img/c00-0-3.png",
-     "clip": null,
+     "clip": "clip/c00-0-3.mp4",
      "video": null,
      "audio": "audio/c00-0-3.mp3",
      "words": [
@@ -591,8 +591,8 @@ window.LESSONS = {
       "Πολλά χρόνια, ε; Μην ανησυχείς. Θα πετάμε γρήγορα!"
      ],
      "questions": [],
-     "img": null,
-     "clip": null,
+     "img": "img/c00-0-4.png",
+     "clip": "clip/c00-0-4.mp4",
      "video": null,
      "audio": "audio/c00-0-4.mp3",
      "words": [
@@ -883,8 +883,8 @@ window.LESSONS = {
       "Έπαιζαν; Πήγαιναν σχολείο; Τι έτρωγαν;"
      ],
      "questions": [],
-     "img": null,
-     "clip": null,
+     "img": "img/c00-0-5.png",
+     "clip": "clip/c00-0-5.mp4",
      "video": null,
      "audio": "audio/c00-0-5.mp3",
      "words": [
@@ -1079,8 +1079,8 @@ window.LESSONS = {
       "Και τρίτον, στο τέλος κάθε σταθμού θα σε ρωτήσω κάτι. Μην ανησυχείς, θα είναι διασκεδαστικό!"
      ],
      "questions": [],
-     "img": null,
-     "clip": null,
+     "img": "img/c00-0-6.png",
+     "clip": "clip/c00-0-6.mp4",
      "video": null,
      "audio": "audio/c00-0-6.mp3",
      "words": [
@@ -1260,8 +1260,8 @@ window.LESSONS = {
       "Πρώτος σταθμός: Ελλάδα, 146 π.Χ."
      ],
      "questions": [],
-     "img": null,
-     "clip": null,
+     "img": "img/c00-0-7.png",
+     "clip": "clip/c00-0-7.mp4",
      "video": null,
      "audio": "audio/c00-0-7.mp3",
      "words": [
