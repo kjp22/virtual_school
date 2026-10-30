@@ -1,8 +1,8 @@
 """Make the scene pictures with fal.ai (Nano Banana Pro), instead of Midjourney.
 
 Reads the prompts in prompts/midjourney-*.md and saves site/img/<slug>.png.
-The first picture of each file is the owl (Glafki); scenes marked "(+ owl reference)"
-get that picture as a reference, so she looks the same everywhere.
+Scenes marked "(+ owl reference)" get the owl picture (c00-0-1, Glafki) as a reference,
+and "(+ ref c01-2-1)" that scene's picture, so characters look the same everywhere.
 
     python tools/make_images.py --only c00          the intro
     python tools/make_images.py --only c00-0-1      one picture
@@ -26,18 +26,20 @@ IMG_DIR = ROOT / "site" / "img"
 TEXT_MODEL = "fal-ai/nano-banana-pro"
 EDIT_MODEL = "fal-ai/nano-banana-pro/edit"
 NO_TEXT = "No text, letters or writing anywhere in the picture."
-SAME_OWL = "Keep the owl exactly as in the reference picture: same face, eyes, feathers, satchel and style."
+OWL = "c00-0-1"
+SAME_LOOK = "Keep the character exactly as in the reference picture: same face, colors, clothes and style."
 
-SCENE_RE = re.compile(r"\*\*(c\d\d-[\d-]+)\*\*([^\n]*)\n```\n(.*?)\n```", re.S)
+SCENE_RE = re.compile(r"\*\*(c\d\d-[\w-]+)\*\*([^\n]*)\n```\n(.*?)\n```", re.S)
 
 
 def read_prompts(path):
-    """[(slug, prompt, uses_owl_reference, aspect_ratio)] in file order."""
+    """[(slug, prompt, reference slug or None, aspect_ratio)] in file order."""
     scenes = []
     for slug, title, prompt in SCENE_RE.findall(path.read_text(encoding="utf-8")):
         ar = re.search(r"--ar (\d+:\d+)", prompt)
         prompt = re.sub(r"\s*--\w+ \S+", "", prompt).strip()
-        scenes.append((slug, prompt, "owl reference" in title, ar.group(1) if ar else "4:3"))
+        ref = OWL if "owl reference" in title else (re.search(r"ref (c[\w-]+)", title) or [None, None])[1]
+        scenes.append((slug, prompt, ref, ar.group(1) if ar else "4:3"))
     return scenes
 
 
@@ -60,9 +62,7 @@ def main():
 
     IMG_DIR.mkdir(parents=True, exist_ok=True)
     for path in sorted((ROOT / "prompts").glob("midjourney-*.md")):
-        scenes = read_prompts(path)
-        owl = IMG_DIR / f"{scenes[0][0]}.png" if scenes else None
-        for slug, prompt, ref, ar in scenes:
+        for slug, prompt, ref, ar in read_prompts(path):
             out = IMG_DIR / f"{slug}.png"
             if args.only and not slug.startswith(args.only):
                 continue
@@ -71,10 +71,11 @@ def main():
             print(f"{slug} …", flush=True)
             inputs = {"prompt": f"{prompt}. {NO_TEXT}", "aspect_ratio": ar, "output_format": "png"}
             if ref:
-                if not owl.exists():
-                    sys.exit(f"Make {owl.name} first: it is the owl reference.")
-                inputs["prompt"] += " " + SAME_OWL
-                inputs["image_urls"] = [image_data_uri(owl)]
+                ref_img = IMG_DIR / f"{ref}.png"
+                if not ref_img.exists():
+                    sys.exit(f"Make {ref_img.name} first: {slug} uses it as a reference.")
+                inputs["prompt"] += " " + SAME_LOOK
+                inputs["image_urls"] = [image_data_uri(ref_img)]
                 url = run_model(EDIT_MODEL, inputs, args.api_key)
             else:
                 url = run_model(TEXT_MODEL, inputs, args.api_key)
