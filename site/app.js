@@ -214,9 +214,12 @@
       el.video.classList.remove("show");
       el.video.removeAttribute("src");
     }
-    // The animated clip of the picture wins over the still picture.
+    // The animated clip of the picture wins over the still picture. It plays once, then its
+    // last frame stays and slowly zooms while the narration finishes (a loop gets tiring).
     el.clip.hidden = !scene.clip;
+    el.clip.classList.remove("held");
     if (scene.clip) {
+      el.clip.onended = () => el.clip.classList.add("held");
       el.clip.src = scene.clip;
       el.clip.play().catch(() => {});
     } else {
