@@ -5,6 +5,7 @@ Run after editing a script or adding media:
 
 Optional media, picked up automatically if present (named by scene slug, e.g. c01-1-3):
     site/img/<id>.webp|.png|.jpg   foreground illustration
+    site/clip/<id>.mp4|.webm        the foreground picture, animated (tools/make_video.py)
     site/bg/<id>.mp4|.webm          background animation clip
     site/audio/<id>.mp3 + <id>.json recorded narration + word timings (tools/make_voice.py)
 """
@@ -141,6 +142,7 @@ def parse_file(path):
             scene["narration"] = [q["prompt"] for q in scene["questions"] if q["prompt"]]
         slug = scene["slug"]
         scene["img"] = find_media("img", slug, [".webp", ".png", ".jpg"])
+        scene["clip"] = find_media("clip", slug, [".webm", ".mp4"])
         scene["video"] = find_media("bg", slug, [".webm", ".mp4"])
         audio = find_media("audio", slug, [".mp3"])
         timings = SITE / "audio" / f"{slug}.json"

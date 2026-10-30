@@ -25,6 +25,7 @@ Each scene in a script has:
 site/
   index.html, style.css, app.js   the lesson player
   background.js                   coded background animations (used when there is no video clip)
+  clip/                           animated pictures (tools/make_video.py)
   data/lessons.js                 generated from script/ by tools/build.py — don't edit by hand
 ```
 
@@ -47,5 +48,15 @@ Until the narration is recorded, the player uses the browser's own Greek voice.
    - `site/bg/c01-1-3.mp4` – background clip
 
    Then run `python tools/build.py` again.
+4. Bring the pictures to life with fal.ai (paid, about $0.35 per 5-second clip):
+   ```
+   python tools/make_video.py --only c00-0-1
+   ```
+   It asks for your fal.ai key, animates `site/img/<scene>.png` into `site/clip/<scene>.mp4`,
+   and the player shows the moving clip instead of the still picture.
+   Leave out `--only` to do every scene with a picture; add `--kind bg` for backgrounds.
+
+   Midjourney tips: use `--ar 4:3` (the picture frame's shape), and give every picture the same
+   owl reference image so Glafki looks the same everywhere.
 
 Keys: Space = play/pause, ← → = scenes, C = captions, I = production notes, F = fullscreen.

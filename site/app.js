@@ -4,7 +4,7 @@
   const DATA = window.LESSONS || { chapters: [], uiAudio: {} };
   const $ = (sel) => document.querySelector(sel);
   const el = {
-    fg: $("#fg"), img: $("#fg-img"), placeholder: $("#fg-placeholder"), note: $("#fg-note"),
+    fg: $("#fg"), img: $("#fg-img"), clip: $("#fg-video"), placeholder: $("#fg-placeholder"), note: $("#fg-note"),
     video: $("#bg-video"), captions: $("#captions"), station: $("#station-chip"), progress: $("#progress"),
     titleCard: $("#title-card"), quiz: $("#quiz"), home: $("#home"), chapterList: $("#chapter-list"),
     voiceStatus: $("#voice-status"), play: $("#btn-play"), cc: $("#btn-cc"), info: $("#btn-info"),
@@ -214,7 +214,18 @@
       el.video.classList.remove("show");
       el.video.removeAttribute("src");
     }
-    if (scene.img) {
+    // The animated clip of the picture wins over the still picture.
+    el.clip.hidden = !scene.clip;
+    if (scene.clip) {
+      el.clip.src = scene.clip;
+      el.clip.play().catch(() => {});
+    } else {
+      el.clip.removeAttribute("src");
+    }
+    if (scene.clip) {
+      el.img.hidden = true;
+      el.placeholder.hidden = true;
+    } else if (scene.img) {
       el.img.src = scene.img;
       el.img.hidden = false;
       el.placeholder.hidden = true;

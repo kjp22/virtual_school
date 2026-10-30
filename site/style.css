@@ -74,15 +74,15 @@ button {
 }
 #fg.leaving { opacity: 0; transform: translateX(-50%) scale(0.96); }
 
-#fg-img {
+#fg-img, #fg-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 18px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--panel-line);
-  animation: kenburns 22s ease-in-out infinite alternate;
 }
-#fg-img[hidden] { display: none; }
+#fg-img { animation: kenburns 22s ease-in-out infinite alternate; }
+#fg-img[hidden], #fg-video[hidden] { display: none; }
 
 @keyframes kenburns {
   from { transform: scale(1) translate(0, 0); }
