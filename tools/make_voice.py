@@ -41,7 +41,7 @@ UI_LINES = {
 }
 
 ELEVEN_API = "https://api.elevenlabs.io/v1"
-ELEVEN_DEFAULT_VOICE = "T6NabghTdZ1K1TRF4KuA"  # "Lena", a native Greek voice from the Voice Library (needs a paid plan or API credits)
+ELEVEN_DEFAULT_VOICE = "0oYUKTNPbymIKVAkDQqh"  # "Sofia", a sweet native Greek voice from the Voice Library (needs a paid plan or API credits)
 
 
 def speech_text(lines):
@@ -160,7 +160,7 @@ async def main():
     eleven.add_argument("--api-key", default=os.environ.get("ELEVENLABS_API_KEY"),
                         help="or set ELEVENLABS_API_KEY; asked for if missing")
     eleven.add_argument("--voice-id", default=ELEVEN_DEFAULT_VOICE)
-    eleven.add_argument("--model", default="eleven_multilingual_v2", help="eleven_multilingual_v2 supports Greek")
+    eleven.add_argument("--model", default="eleven_v3", help="eleven_v3 and eleven_multilingual_v2 both support Greek")
     eleven.add_argument("--speed", type=float, default=0.95, help="0.7 (slow) to 1.2 (fast)")
     eleven.add_argument("--list-voices", action="store_true", help="show your ElevenLabs voices and stop")
     args = parser.parse_args()
