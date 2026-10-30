@@ -120,6 +120,19 @@ def bg_inputs(scene, args):
     return inputs
 
 
+def shrink(path):
+    """fal.ai clips are ~16 MB; make them web-sized (~1-2 MB). Skipped if ffmpeg is missing."""
+    tmp = path.with_suffix(".tmp.mp4")
+    try:
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(path), "-an",
+                        "-vf", "scale=1024:-2", "-c:v", "libx264", "-crf", "26", "-preset", "slow",
+                        "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(tmp)], check=True)
+    except (OSError, subprocess.CalledProcessError):
+        tmp.unlink(missing_ok=True)
+        return
+    tmp.replace(path)
+
+
 def collect_jobs(args):
     jobs = []
     for path in sorted(build.SCRIPT_DIR.glob("*.md")):
@@ -180,6 +193,7 @@ def main():
         out.parent.mkdir(parents=True, exist_ok=True)
         with urllib.request.urlopen(url, timeout=300) as resp:
             out.write_bytes(resp.read())
+        shrink(out)
         print(f"    saved {out.relative_to(ROOT)}")
 
     subprocess.run([sys.executable, str(ROOT / "tools" / "build.py")], check=True)
